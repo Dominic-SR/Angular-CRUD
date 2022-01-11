@@ -39,8 +39,8 @@ constructor(private StudentService:StudentService){}
   {
     this.StudentService.GetAll()
     .subscribe(resp =>{
+      var e =JSON.stringify(resp);
       this.studentList = resp;
-      console.log("ggggggg",this.studentList)
     })
 
   }
