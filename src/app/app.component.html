@@ -26,18 +26,23 @@
             <th>Project Name</th>
             <th>Description</th>
             <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody *ngFor= "let student of studentList">
-          <tr>{{student.project_name}}</tr>
-          <tr>{{student.project_description}}</tr>
-          <tr>{{student.project_image}}</tr>
           <tr>
-            <button class="btn btn-primary">Edit</button>
-          </tr>
-          <tr>
-            <button class="btn btn-danger">Delete</button>
-          </tr>
+          <td>{{student.project_name}}</td>
+          <td>{{student.project_description}}</td>
+          <td>{{student.project_image}}</td>
+          <td>
+          <button class="btn btn-primary">Edit</button>
+          </td>
+          <td>  
+          <button class="btn btn-danger">Delete</button>
+          </td>  
+        </tr>
+          
         </tbody>
       </table>
     </div>

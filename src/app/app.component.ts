@@ -17,7 +17,7 @@ export class StudentModel
 })
 export class AppComponent implements OnInit{
 
-studentList:StudentModel[] = [];
+studentList:any= [];
 
 constructor(private StudentService:StudentService){}
   
@@ -41,6 +41,9 @@ constructor(private StudentService:StudentService){}
     .subscribe(resp =>{
       var e =JSON.stringify(resp);
       this.studentList = resp;
+      var r = this.studentList;
+      this.studentList = r.data;
+      console.log("std data--->",this.studentList)
     })
 
   }
