@@ -18,8 +18,23 @@ export class StudentService {
     return this.http.post<StudentModel>(this.URL,data);
   }
 
+  Update(data:StudentModel,projects_id:any):Observable<StudentModel>
+  {
+    return this.http.put<StudentModel>(this.URL + "/" +projects_id,data);
+  }
+
   GetAll():Observable<StudentModel[]>
   {
     return this.http.get<StudentModel[]>(this.URL);
+  }
+
+  GetOne(projects_id:any):Observable<StudentModel>
+  {
+    return this.http.get<StudentModel>(this.URL + "/" + projects_id);
+  }
+
+  Delete(projects_id:any):Observable<StudentModel>
+  {
+    return this.http.delete<StudentModel>(this.URL + "/" + projects_id);
   }
 }
