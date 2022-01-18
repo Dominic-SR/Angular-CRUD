@@ -17,7 +17,7 @@ export class StudentModel
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
+  p: number = 1;
 studentList:any= [];
 isEdit:boolean=false;
 
