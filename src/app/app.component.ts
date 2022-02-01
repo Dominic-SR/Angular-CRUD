@@ -20,6 +20,7 @@ export class AppComponent implements OnInit{
   p: number = 1;
 studentList:any= [];
 isEdit:boolean=false;
+baseImg:any;
 
 constructor(private StudentService:StudentService){}
   
@@ -27,10 +28,27 @@ constructor(private StudentService:StudentService){}
   title = 'my-dream-app';
   student:StudentModel = new StudentModel();
   
+  uploadFile(evt : any){
+    const file = evt.target.files[0];
+     if(file){
+      let me = this;
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e) =>{
+        //console.log(reader.result)
+       this.baseImg = reader.result;
+      }
+      reader.onerror = function(error){
+        console.log('Error :',error);
+      }
+      }
+  }
+
   onSubmit(form:NgForm):void
   {
     if(!this.isEdit){
-    console.log(form.value);
+    Object.assign(form.value,{"project_image":this.baseImg})
+    console.log("get value------->",form.value);
     this.StudentService.Create(form.value)
     .subscribe(resp =>{
       console.log(resp);

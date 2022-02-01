@@ -12,7 +12,7 @@
         <input [(ngModel)] = "student.project_description" name="project_description" type="text" class="form-control">
       </div>
       <div class="form-group">
-        <input type="file" class="form-control">
+        <input type="file" [(ngModel)]="student.project_image" (change)="uploadFile($event)" class="form-control">
       </div>
       <!--<div class="form-group">
         <label for="pwd">Image</label>
