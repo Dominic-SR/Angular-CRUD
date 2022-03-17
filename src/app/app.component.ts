@@ -1,6 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { StudentService } from 'src/service/student.service';
+import { ExcelServicesService } from '../service/excel-services.service';  
+import { HttpClient } from '@angular/common/http';  
+import { Observable } from 'rxjs';  
 
 export class StudentModel
 {
@@ -22,7 +25,9 @@ studentList:any= [];
 isEdit:boolean=false;
 baseImg:any;
 
-constructor(private StudentService:StudentService){}
+constructor(private StudentService:StudentService,
+            private excelService:ExcelServicesService,
+            private http: HttpClient){}
   
 
   title = 'my-dream-app';
@@ -96,6 +101,10 @@ constructor(private StudentService:StudentService){}
     })
     }
   }
+
+  exportAsXLSX():void {  
+    this.excelService.exportAsExcelFile(this.studentList, 'sample');  
+ }  
 
   ngOnInit(): void {
     this.getAll();

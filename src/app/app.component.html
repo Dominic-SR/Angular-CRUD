@@ -22,7 +22,7 @@
     </form></div>
     <div class="col=6"><div class="container">
       <h2>Bordered Table</h2>
-                 
+      <button (click)="exportAsXLSX()" class="btn btn-info mb-4 mt-2">Download Excel</button> 
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -37,7 +37,7 @@
           <tr>
           <td>{{student.project_name}}</td>
           <td>{{student.project_description}}</td>
-          <td><img src="../../../../nodejs/NodeJS-Mysql/public/uploads/image/{{student.project_image}}" height="200px" width="200px"/></td>
+          <td><img src="{{student.project_image}}" height="200px" width="200px"/></td>
           <td>
           <button class="btn btn-primary" (click)="edit(student)">Edit</button>
           </td>
